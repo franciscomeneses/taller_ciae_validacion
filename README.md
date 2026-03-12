@@ -15,4 +15,6 @@
 
 [Descargar ejercicio IRT](https://github.com/franciscomeneses/taller_ciae_validacion/raw/refs/heads/main/Ejercicio_irt.zip)
 
+# Actividad de cierre
 
+[Ticket de salida](https://forms.gle/TyZNYvcRhGhmEEGk8)
