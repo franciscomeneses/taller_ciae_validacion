@@ -1,4 +1,4 @@
 
-[Presentación Interna](https://franciscomeneses.github.io/Presentacion_ciae_segregacion_escuelas_pppp/Presentacion_segregacion.html)
+[Presentación taller](https://franciscomeneses.github.io/taller_ciae_validacion/taller_medicion_ciae.html)
 
 
