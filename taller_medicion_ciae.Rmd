@@ -575,6 +575,13 @@ class: inverse, middle, center, slideInRight
 
 ##  Ejmplo aplicado
 
+---
+
+### Ticket de salida
+
+.center[
+![:scale 50%](images/ticket_taller_ciae.png)
+]
 
 ---
 
