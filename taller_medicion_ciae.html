@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Validación Psicométrica de Instrumentos</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Francisco Meneses Rivas - CIAE" />
+    <meta name="date" content="2026-03-12" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan_custom/xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: inverse, bottom, right
+
+
+
+
+
+
+
+
+&lt;!---
+About macros.js: permite escalar las imágenes como [:scale 50%](path to image), hay si que grabar ese archivo js en el directorio.
+.pull-left[&lt;images/Conocimiento cívico.png&gt;] 
+.pull-right[&lt;images/Conocimiento cívico_graf.png&gt;]
+
+---&gt;
+
+# __Validación Psicométrica de Instrumentos__
+## *Aproxiación teórica-practica al análisis factorial (CFA) y la teoría de respuesta al ítem (IRT)*
+&lt;br&gt;
+&lt;hr&gt;
+## Taller interno IE-CIAE
+
+### Francisco Meneses Rivas  - Asistente de Investigación
+
+&lt;br&gt;
+
+---
+
+
+# Cronograma de la sesión
+
+
+ ## Análisis factorial
+ 
+  1. Conceptos centrales de la psicometría y el AFC  __[16:05 - 16:25]__
+
+  2. Aplicación practica en R mediante ejercicio didactico __[16:26 - 17:05]__
+
+## Teória de Respuesta al ítem 
+  
+  3. Aproximación teórica a la difucultad y discriminación del ítem. __[17:15 - 17:25]__
+  
+  4. Revisión conjunta de ejemplo aplicado en R. __[17:26 - 17:50]__
+  
+
+&gt; Proceso metacognitivo: Ticket de salida
+
+---
+class: inverse, middle, center, slideInRight
+
+# ¿Como medimos en Ciencias Sociales? 
+## Asignar numeros a la realidad social
+
+
+---
+
+# El problema de la medición en ciencias sociales
+
+- Variables observables y no observables directamente
+
+- Ejemplos de variables "no observables" en ciencias sociales 
+
+- Las variables latentes: medición indirecta
+
+.center[
+![:scale 60%](images/medir_inteligencia.png)
+]
+
+---
+
+# Constructos y variables latentes
+
+.pull-left[
+ 
+ * __Perspectiva representacional__: 
+    + Representar relaciones empiricas mediante numeros. 
+    + Mayor ansiedad = Mayor valor numerico
+* __Constructos__:
+    - Aspectos no observables de la realidad
+    - Sabemos que existen por sus consecuencias (Depresión)
+* __Variables latentes__: 
+    - Modelamiento estádistico de constructos
+    
+]
+  
+.pull-right[
+
+![](images/factor.png)
+
+]  
+  
+  
+???
+
+- Se basa en la inferencia del valor del constructo en base a variables observables
+
+---
+
+## Breve ejercicio
+
+![](images/Diapositiva1.PNG)
+
+---
+
+## Breve ejercicio
+
+![](images/Diapositiva2.PNG)
+
+---
+
+## Breve ejercicio
+
+![](images/Diapositiva3.PNG)
+
+
+---
+
+# ¿Tenemos una buena medición? 
+
+La psicometría nos entrega los siguientes conceptos para profundizar en la calidad de nuestra medición. 
+
+  * __Fiabilidad__
+  
+  * __Validez__ 
+  
+  * __Dificultad__ y  __Discriminación__ de los ítems
+  
+  * Sesgos y comparabilidad (No lo veremos)
+  
+&gt; Profundicemos brevemente en cada uno de ellos 
+
+---
+
+# Fiabilidad
+
+.pull-left[
+_¿Mi medición posee valores consistentes que representan prescisamente el nivel que se posee del constructo?_ 
+
+Evidencias de fiabilidad: 
+  * Medición repetida
+  * Consistencia item-rtest 
+
+Tecnica a utilizar: 
+
+  * Alpha de crombach
+  * Omega 
+
+]
+
+.pull-right[
+
+&gt; Ejemplo de problema de fiabilidad
+
+* Incosistencia temporal ![:scale 40%](images/ejemplo_problema_fiabilidad.png)
+
+* Incosistencia entre ítems
+
+]
+
+
+---
+
+
+# Validez
+
+.pull-left[
+_¿Mi medición refleja el constructo que deseo medir y no otro/s?_ 
+
+
+Tipos de evidencia de validez 
+  * __Validez de constructo__:
+      + Validación convergente
+      + Validación de expertos
+      + Encuestas cognitivas
+  * __Validez interna del modelo__
+      + Dimensionalidad correcta
+
+Tecnica estadística a utilizar: 
+  * Análisis factorial
+
+]
+
+.pull-right[
+
+&gt; Ejemplos de problemas de validez
+
+* Incorporar otros conocimientos/ideas en ítems fuera de lo que se desea medir (erroe de medida / sesgos)
+
+* Las dimensiones de mi operacionalización no se corresponden con las asociaciones entre los datos.
+
+
+]
+
+---
+
+## Ejemplo de problema de validez 1:  Sesgo cultural del ítem
+
+* ítem de inteligencia en reclutamiento de soldados (1917), dimensión sentido comun. 
+
+__Por favor, dibuje lo que falta en la imagen__
+
+.pull-left[
+![:scale 100%](images/sesgo_cultural_validez.png)
+]
+
+--
+
+.pull-right[
+
+&gt; Muchos de los evaluados nunca habían visto un partido de ténis. Por lo que esto no medía su sentido comun ni inteligencia, sino su conocimiento de un deporte en particular. 
+
+]
+
+
+---
+## Ejemplo de problema de validez 2: Dimensionalidad incorrecta
+
+
+.center[
+![:scale 60%](images/operacionalizacion_personajes.png)
+]
+
+* Este modelo de medición asume que "_juicios_" y "_creencias_" se asocian más entre si (Por que son causados por la dimension latente "cognitiva")
+
+* Si "_juicio_" se asocia más con "_emociones_" que con "_creencias_" los datos no se ajustan al modelo
+
+
+
+---
+
+
+## Modelos de medición y factores
+.pull-left[
+Operacionalizacion de los constructos
+
+  + Teoría
+  + Dimensiones
+  + Itéms
+  + Preguntas
+  
+  ]
+
+.pull-right[
+Evaluamos estadisticamente la calidad de la escala
+
+  + Fiabilidad -  alpha de crombach
+  + Validez interna - Análisis factorial
+  ]
+  
+.center[  
+![:scale 60%](images/operacionalizacion_personajes.png)
+]
+---
+
+
+# Analisis factorial: Conceptos elementales
+
+.pull-left[
+
+&gt; _¿Cuantas y cuales son las dimensiones poseen nuesto conjunto de variables?_
+
+  __Conceptos centrales__
+
+- Factores
+
+- Cargas factoriales
+
+- Comunalidad
+
+- Varianza unica - Error de medición  
+
+
+]
+
+.pull-right[
+
+![](images/factor.png)
+
+]
+
+
+???
+
+- __Factores__: Los factores se producen cuando existe covarianza entre los indicadortes. se presume que esta correlacion entre los indicadores se debe a que son causadas por la misma variable latante. (por ejemplo capacidad de multuplicar)
+
+- __Cargas factoriales__:  cuanto explica la variable latente al indicador
+
+- __Comunalidad__: conjunto de covarianza entre los indicadores
+
+_ __Error de medida__: el error de medición es la varianza que no es explicada por el factor comun. se interpreta como varianza del indicador que se debe a otra cosa (ejemplo prueba de mate con footbol.) (ejemplo medición de machismo. - gritar)
+
+---
+
+# Indicadores de ajuste 
+
+&gt; Son pruebas estádisticas que reflejan cuan bien se ajusta el modelo teórico a nuestro nuestros datos.
+
+.small[
+
+| Índice de ajuste | Nombre completo | Qué evalúa | Buen ajuste | Ajuste aceptable |
+|------------------|-----------------|------------|-------------|------------------|
+| χ² (Chi-cuadrado) | Chi-square test | Diferencia entre la matriz de covarianzas observada y la estimada | p &gt; 0.05 | Sensible al tamaño muestral |
+| χ² / df | Chi-square / grados de libertad | Ajuste relativo controlando complejidad del modelo | &lt; 2 | &lt; 3 o &lt; 5 |
+| CFI | Comparative Fit Index | Mejora del modelo respecto a un modelo nulo | ≥ 0.95 | ≥ 0.90 |
+| RMSEA | Root Mean Square Error of Approximation | Error de aproximación poblacional del modelo | ≤ 0.05 | ≤ 0.08 |
+| BIC | Bayesian Information Criterion | Comparación entre modelos penalizando complejidad | Menor valor | Menor valor |
+
+]
+---
+
+![](images/modelo_ejemplo_1.png)
+
+---
+
+# Del diagrama al modelo en R 
+
+
+.pull-left[
+
+![:scale 100%](images/Diapositiva4.png)
+
+]
+
+
+.pull-right[
+
+
+``` r
+modelo = '
+
+L1 =~ i1 + i2 + i3
+
+L2 =~ i4 + i5 + i6
+'
+```
+
+
+Así pasamos del diagrama al modelo en `\(lavaan\)`
+  
+  * una ecuación por latente
+  * __=~__ significa medido por
+
+]
+
+---
+class: inverse, middle, center, slideInRight
+
+#  ¡Vamos al R! 
+
+## ... pero antes ...
+
+---
+
+# Instrucciones: 
+
+  1. Accede al documento de google sheets "Pre-registros y resultados" . 
+  
+  2. Ordena en conjunto con alguien los siguientes indicadores y propone un modelo.
+
+  3. Prueben la valides de su modelo mediante el codigo en R
+  
+  4. Registren los resultados.
+  
+---
+class: inverse, middle, center, slideInRight
+
+#  Teoría de respuesta al ítem
+
+##  Dificultad y discriminación de los ítem
+
+---
+
+
+# Teoría de Respuesta al Ítem (TRI)
+
+Una perspectiva moderna de medición psicométrica.
+
+Se centra en **modelar probabilísticamente la relación entre:**
+
+- las **características de los ítems**
+- y las **habilidades latentes de las personas**
+
+En lugar de analizar solo **puntajes totales**, modela el **comportamiento de cada ítem**.
+
+---
+
+# Principios
+
+La TRI se basa en un principio simple:
+
+&gt; **La probabilidad de responder correctamente un ítem depende de la habilidad de la persona y de las propiedades del ítem.**
+
+Formalmente:
+
+- cada persona tiene una **habilidad latente** (θ)
+- cada ítem tiene **parámetros psicométricos**
+
+A partir de esto se puede **predecir probabilísticamente la respuesta a un ítem**.
+
+---
+
+# Qué nos informa la TRI
+
+Modelar los ítems permite estimar:
+
+- **Dificultad del ítem**  
+- **Capacidad de discriminación**
+- (en algunos modelos) **probabilidad de acierto por azar**
+
+Esto permite entender:
+
+- qué tan difícil es un ítem
+- qué tan bien distingue entre personas con distinta habilidad
+- en qué niveles de habilidad el ítem es más informativo
+
+---
+
+# Modelo conceptual
+
+La TRI describe la relación entre:
+
+
+.small[
+**Probabilidad de responder correctamente un ítem** &lt;- **Habilidad latente de un individuo (θ)**
+]
+
+
+**Curva Característica del Ítem (ICC)**:  La ICC muestra cómo cambia la probabilidad de acierto a medida que aumenta la habilidad.
+
+![](images/curva_caracteristica_item.png)
+
+---
+
+### Dificultad (parámetro b)
+
+La **dificultad** indica el nivel de habilidad necesario para tener una probabilidad moderada de responder correctamente un ítem.
+
+.pull-left[ítems **más difíciles** personas con mayor habilidad pueden responderlos correctamente]
+
+.pull-right[ítems **más fáciles** personas con menor habilidad pueden responderlos correctamente]
+
+&gt; 
+
+
+![](images/IRT_dificultad.jpeg)
+
+---
+
+# Interpretación de la dificultad de un ítem
+
+.pull-left[
+- **b = 0**     → dificultad promedio
+- **b &gt; 0**  → ítem más difícil
+- **b &lt; 0 **  → ítem más fácil
+]
+
+.pull-right[
+&gt;La dificultad indica **en qué nivel de habilidad el ítem resulta más informativo**.
+]
+
+![](images/IRT_dificultad.jpeg)
+
+---
+
+# Capacidad de discriminación `\(a\)`
+
+La **discriminación** indica qué tan bien un ítem distingue entre personas con distinta habilidad.
+
+En la curva característica: La discriminación se observa como **la pendiente de la curva**.
+
+![:scale 90%](images/IRT_discriminacion.jpeg)
+---
+
+## Interpretación de la discriminación
+
+.pull-left[**Alta discriminación** (`\(a\)`&gt;1)
+  - curva más empinada
+  - el ítem distingue bien entre distintos niveles de habilidad]
+
+.pull-right[**Baja discriminación** (`\(a\)`&lt;0.5)
+  - curva más plana
+  - el ítem aporta poca información para diferenciar individuos]
+
+![:scale 80%](images/IRT_discriminacion.jpeg)
+---
+
+
+# Idea clave
+
+En la TRI:
+
+&gt; **Las respuestas observadas son manifestaciones probabilísticas de una habilidad latente.**
+
+El objetivo del modelo es **inferir esa habilidad latente a partir del patrón de respuestas a los ítems.**
+
+
+---
+# Ventajas de la TRI
+
+Comparada con la Teoría Clásica de los Test, la TRI permite:
+
+- analizar **cada ítem individualmente**
+- estimar **habilidad independiente del test específico**
+- construir **tests adaptativos**
+- estudiar **funcionamiento diferencial de ítems**
+
+Por esto es ampliamente utilizada en:
+
+- evaluaciones estandarizadas
+- tests adaptativos
+- medición educativa a gran escala
+
+---
+
+# Resumen de valores de referencia
+
+| Parámetro | Tipo | Valor de referencia | Nivel |
+|---|---|---|---|
+| a | Discriminación | 0.5 | Baja |
+| a | Discriminación | 1.0 | Moderada |
+| a | Discriminación | 2.0 | Alta |
+| b | Dificultad | -1 | Fácil |
+| b | Dificultad | 0 | Media |
+| b | Dificultad | 1 | Difícil |
+
+
+---
+
+class: inverse, middle, center, slideInRight
+
+#  IRT
+
+##  Ejmplo aplicado
+
+
+---
+
+
+class: inverse, bottom, right
+
+
+# __Validación Psicométrica de Instrumentos__
+## *Aproxiación teórica-practica al análisis factorial (CFA) y la teoría de respuesta al ítem (IRT)*
+&lt;br&gt;
+&lt;hr&gt;
+## Taller interno IE-CIAE
+
+### Francisco Meneses Rivas  - Asistente de Investigación
+
+&lt;br&gt;
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="xaringan_custom/macros.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
